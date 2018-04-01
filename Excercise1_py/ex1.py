@@ -58,7 +58,7 @@ theta = gradientDescent(X, y, theta, alpha, iterations)
 
 # print theta to screen
 print('Theta found by gradient descent:\n')
-print('{:.4f}\n{:.4f}\n'.format(theta[0][0], theta[1][0]))
+print(' {:.4f}\n  {:.4f}\n'.format(theta[0][0], theta[1][0]))
 print('Expected theta values (approx)\n')
 print(' -3.6303\n  1.1664\n\n')
 
@@ -66,12 +66,19 @@ print('\nProgram paused. Press enter to continue.\n')
 input()
 
 # plot the linear fit
+print('\nploting linear fit...\n')
 plt.scatter(X[:, 1], y, color='red', marker='x', s=10)
 plt.plot(X[:, 1], np.dot(X, theta), '-')
 plt.xlabel('Population')
 plt.ylabel('Revenue')
 plt.legend(['Training data', 'Linear regression'])
 plt.show()
+
+# Predict values for population sizes of 35,000 and 70,000
+predict1 = np.dot([1, 3.5], theta)
+print('For population = 35,000, we predict a profit of {:.2f}\n'.format(predict1[0] * 10000))
+predict2 = np.dot([1, 7], theta)
+print('For population = 70,000, we predict a profit of {:.2f}\n'.format(predict2[0] * 10000))
 
 print('\nProgram paused. Press enter to continue.\n')
 input()
