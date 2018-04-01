@@ -54,7 +54,14 @@ input()
 print('\nRunning Gradient Descent ...\n')
 # run gradient descent
 from gradientDescent import gradientDescent
-theta = gradientDescent(X, y, theta, alpha, iterations)
+theta, J_history = gradientDescent(X, y, theta, alpha, iterations)
+
+# plot the convergence graph
+print('\nploting the convergence graph...\n')
+plt.plot(range(iterations), J_history, color='coral')
+plt.xlabel('Number of iterations')
+plt.ylabel('Cost J')
+plt.show()
 
 # print theta to screen
 print('Theta found by gradient descent:\n')

@@ -8,4 +8,4 @@ def gradientDescent(X, y, theta, alpha, iterations):
         theta = theta - alpha / m * temp
         from computeCost import computeCost
         J_history[i] = computeCost(X, y, theta)
-    return theta
+    return theta, J_history
