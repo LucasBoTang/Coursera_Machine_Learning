@@ -28,7 +28,7 @@ input()
 
 ## =================== Part 3: Cost and Gradient descent ===================
 X = np.c_[np.ones((m, 1)), X] # add a column of ones to x
-y = np.array([y]).T # make sure y is a column vector
+y = np.c_[y] # make sure y is a column vector
 theta = np.zeros((2, 1)) # initialize fitting parameters
 
 # some gradient descent settings
@@ -102,6 +102,15 @@ for i in range(len(theta0_vals)):
 # because of the way meshgrids work in the surf command, we need to
 # transpose J_vals before calling surf, or else the axes will be flipped
 J_vals = J_vals.T
+
+# Surface plot
+from mpl_toolkits.mplot3d import Axes3D
+fig = plt.figure()
+ax = Axes3D(fig)
+ax.plot_surface(theta0_vals, theta1_vals, J_vals)
+ax.set_xlabel('theta_0')
+ax.set_ylabel('theta_1')
+plt.show()
 
 # contour plot
 # plot J_vals as 15 contours spaced logarithmically between 0.01 and 100
