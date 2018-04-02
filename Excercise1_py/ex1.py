@@ -63,9 +63,16 @@ plt.xlabel('Number of iterations')
 plt.ylabel('Cost J')
 plt.show()
 
+print('\nRunning Normal Equation ...\n')
+# run normal equation
+from normalEqn import normalEqn
+theta_ne = normalEqn(X, y)
+
 # print theta to screen
 print('Theta found by gradient descent:\n')
 print(' {:.4f}\n  {:.4f}\n'.format(theta[0][0], theta[1][0]))
+print('Theta found by normal equation:\n')
+print(' {:.4f}\n  {:.4f}\n'.format(theta_ne[0, 0], theta_ne[1, 0]))
 print('Expected theta values (approx)\n')
 print(' -3.6303\n  1.1664\n\n')
 
@@ -75,10 +82,11 @@ input()
 # plot the linear fit
 print('\nploting linear fit...\n')
 plt.scatter(X[:, 1], y, color='red', marker='x', s=10)
-plt.plot(X[:, 1], np.dot(X, theta), '-')
+plt.plot(X[:, 1], np.dot(X, theta), color='green')
+plt.plot(X[:, 1], np.dot(X, theta_ne), color='blue')
 plt.xlabel('Population')
 plt.ylabel('Revenue')
-plt.legend(['Training data', 'Linear regression'])
+plt.legend(['Linear regression by Gradient Descent', 'Linear regression by Normal Equation', 'Training data'])
 plt.show()
 
 # Predict values for population sizes of 35,000 and 70,000
