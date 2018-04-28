@@ -93,13 +93,14 @@ theta1_grad = Delta1 / m;
 %               and Theta2_grad from Part 2.
 %
 
-reg1 = theta1(:, 2:end) * lambda / m;
-reg2 = theta2(:, 2:end) * lambda / m;
+Reg = lambda / (2 * m) * (sum(sum(theta1(:, 2:end) .^ 2)) + sum(sum(theta2(:, 2:end) .^ 2)));
+reg1 = lambda / m * theta1(:, 2:end);
+reg2 = lambda / m * theta2(:, 2:end);
 
 theta2_grad(:, 2:end) = theta2_grad(:, 2:end) + reg2;  
 theta1_grad(:, 2:end) = theta1_grad(:, 2:end) + reg1; 
 
-J = J + lambda * (sum(sum(theta1(:, 2:end) .^ 2)) + sum(sum(theta2(:, 2:end) .^ 2))) / 2 / m;
+J = J + Reg;
 
 % -------------------------------------------------------------
 
