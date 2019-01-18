@@ -1,8 +1,8 @@
-# Coursera_Machine_Learning
+# Machine Learning
 
 Homework and slides for Coursera learning introductory course by Andrew Ng
 
-Code Include:
+Matlab Code Include:
 - Exercise1: Linear Regression
 - Exercise2: Logistic Regression
 - Exercise3: Multi-class Classification and Neural Networks
