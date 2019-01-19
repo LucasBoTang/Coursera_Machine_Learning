@@ -1,6 +1,6 @@
 # Machine Learning
 
-Homework and slides for Coursera learning introductory course by Andrew Ng
+Homework and slides for Coursera machine learning course by Andrew Ng
 
 Matlab Code Include:
 - Exercise1: Linear Regression
